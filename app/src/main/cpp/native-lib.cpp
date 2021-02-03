@@ -12,6 +12,7 @@ extern "C" JNIEXPORT jstring JNICALL
 Java_com_example_meetdemo_MainActivity_stringForMakeDiscoverable(
         JNIEnv* env,
         jobject /* this */) {
-    std::string hello = "You're out for discovery now";
+    std::string hello = "You're discoverable";
     return env->NewStringUTF(hello.c_str());
 }
+//can return in byte array

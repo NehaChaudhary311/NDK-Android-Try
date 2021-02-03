@@ -3,6 +3,7 @@ package com.example.meetdemo;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.widget.CompoundButton;
 import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -20,19 +21,21 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         // Example of a call to a native method
-        TextView tv = findViewById(R.id.discoverable);
+        final TextView tv = findViewById(R.id.discoverable);
+        //tv.setText(stringFromJNI());
 
-
+        //Check with button, toggle button for discoverable
         //Code for switch - make me discoverable
         Switch makeDiscoverable = (Switch)findViewById(R.id.makeDiscoverable);
-        Boolean switchState = makeDiscoverable.isChecked();
-        if(switchState == true) {
-            //Toast.makeText(getApplicationContext(),stringForMakeDiscoverable(),Toast.LENGTH_SHORT).show();
-            tv.setText(stringForMakeDiscoverable());
-        }
-        else{
-            Toast.makeText(getApplicationContext(),"You're not discoverable now",Toast.LENGTH_SHORT).show();
-        }
+        //String statusSwitch;
+        makeDiscoverable.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if(isChecked) tv.setText(stringForMakeDiscoverable());
+                else tv.setText("You're not discoverable");
+            }
+        });
+
     }
 
     /**

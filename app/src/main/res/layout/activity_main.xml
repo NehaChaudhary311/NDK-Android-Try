@@ -44,8 +44,8 @@
 
     <TextView
         android:id="@+id/discoverable"
-        android:layout_width="192dp"
-        android:layout_height="9dp"
+        android:layout_width="323dp"
+        android:layout_height="54dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
